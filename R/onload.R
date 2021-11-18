@@ -4,16 +4,16 @@
   } else "english"
 
   op <- options()
-  op_papaja <- list(
-    papaja.language = lang
-    , papaja.terms = localize(lang)
-    , papaja.na_string = "NA"
-    , papaja.plot_colors = "greyscale"
-    , papaja.mse = TRUE
-    , papaja.sphericity_correction = "GG"
+  op_sportrxiv <- list(
+    sportrxiv.language = lang
+    , sportrxiv.terms = localize(lang)
+    , sportrxiv.na_string = "NA"
+    , sportrxiv.plot_colors = "greyscale"
+    , sportrxiv.mse = TRUE
+    , sportrxiv.sphericity_correction = "GG"
   )
-  toset <- !(names(op_papaja) %in% names(op))
-  if(any(toset)) options(op_papaja[toset])
+  toset <- !(names(op_sportrxiv) %in% names(op))
+  if(any(toset)) options(op_sportrxiv[toset])
 
 
   # Fix dplyr R CMD Check note

@@ -23,13 +23,13 @@ sportrxiv_word <- function(
 ) {
   validate(fig_caption, check_class = "logical", check_length = 1)
 
-  # Get APA6 reference file
+  # Get SportRxiv reference file
   ellipsis <- list(...)
   if(is.null(ellipsis$reference_docx)) {
     ellipsis$reference_docx <- system.file(
-      "rmarkdown", "templates", "apa6", "resources"
-      , "apa6_man.docx"
-      , package = "papaja"
+      "rmarkdown", "templates", "sportrxiv_word", "resources"
+      , "skeleton.docx"
+      , package = "sportrxivdown"
     )
     if(ellipsis$reference_docx == "") stop("No .docx-reference file found.")
   }
@@ -52,7 +52,7 @@ sportrxiv_word <- function(
   config$knitr$opts_knit$rmarkdown.pandoc.to <- "docx"
   config$knitr$knit_hooks$inline <- inline_numbers
   # config$knitr$knit_hooks$plot <- function(x, options) {
-  #   options$fig.cap <- paste("*", getOption("papaja.terms")$figure, ".* ", options$fig.cap)
+  #   options$fig.cap <- paste("*", getOption("sportrxiv.terms")$figure, ".* ", options$fig.cap)
   #   knitr::hook_plot_md(x, options)
   # }
 
@@ -60,7 +60,7 @@ sportrxiv_word <- function(
   config$knitr$opts_chunk$dpi <- 300
   config$clean_supporting <- FALSE # Always keep images files
 
-  config$pre_knit <- function(input, ...) { modify_input_file(input=input, format="papaja::sportrxiv_word") }
+  config$pre_knit <- function(input, ...) { modify_input_file(input=input, format="sportrxivdown::sportrxiv_word") }
 
   ## Overwrite preprocessor to set CSL defaults
   saved_files_dir <- NULL
@@ -512,7 +512,7 @@ modify_input_file <- function(input, format) {
       for(i in seq_along(yaml_params$appendix)) {
         input_text <- c(
           input_text
-          , if(format %in% c("sportrxivdown::apa6_word", "sportrxivdown::apa6_docx")) {
+          , if(format %in% c("sportrxivdown::sportrxiv_word", "sportrxivdown::sportrxiv_word")) {
             paste0(
               "<div custom-style='h1-pagebreak'>Appendix "
               , if(length(yaml_params$appendix) > 1) LETTERS[i] else NULL

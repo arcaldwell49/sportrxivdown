@@ -8,12 +8,12 @@
 \alias{printnum.numeric}
 \alias{printnum.data.frame}
 \alias{printnum.matrix}
-\alias{printnum.papaja_labelled}
+\alias{printnum.sportrxiv_labelled}
 \title{Prepare numeric values for printing}
 \usage{
 printnum(x, ...)
 
-\method{printnum}{default}(x, na_string = getOption("papaja.na_string"), ...)
+\method{printnum}{default}(x, na_string = getOption("sportrxiv.na_string"), ...)
 
 \method{printnum}{list}(x, ...)
 
@@ -22,7 +22,7 @@ printnum(x, ...)
   numerals = TRUE,
   capitalize = FALSE,
   zero_string = "no",
-  na_string = getOption("papaja.na_string"),
+  na_string = getOption("sportrxiv.na_string"),
   ...
 )
 
@@ -31,7 +31,7 @@ printnum(x, ...)
   gt1 = TRUE,
   zero = TRUE,
   margin = 1,
-  na_string = getOption("papaja.na_string"),
+  na_string = getOption("sportrxiv.na_string"),
   use_math = TRUE,
   add_equals = FALSE,
   ...
@@ -41,7 +41,7 @@ printnum(x, ...)
 
 \method{printnum}{matrix}(x, margin = 2, ...)
 
-\method{printnum}{papaja_labelled}(x, ...)
+\method{printnum}{sportrxiv_labelled}(x, ...)
 }
 \arguments{
 \item{x}{Numeric. Can be either a single value, vector, or matrix.}

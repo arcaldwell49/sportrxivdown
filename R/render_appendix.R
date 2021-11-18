@@ -64,7 +64,7 @@ render_appendix <- function(
     } else {
       csl <- system.file(
         "rmd", "apa6.csl"
-        , package = "papaja"
+        , package = "sportrxivdown"
       )
     }
 

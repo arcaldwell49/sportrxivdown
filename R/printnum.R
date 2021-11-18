@@ -39,7 +39,7 @@ printnum <- function(x, ...) {
 #' @rdname printnum
 #' @export
 
-printnum.default <- function(x, na_string = getOption("papaja.na_string"), ...) {
+printnum.default <- function(x, na_string = getOption("sportrxiv.na_string"), ...) {
   if(is.null(x)) stop("The parameter 'x' is NULL. Please provide a value for 'x'")
 
   x <- as.character(x)
@@ -61,7 +61,7 @@ printnum.list <- function(x, ...) {
 #' @rdname printnum
 #' @export
 
-printnum.integer <- function(x, numerals = TRUE, capitalize = FALSE, zero_string = "no", na_string = getOption("papaja.na_string"), ...) {
+printnum.integer <- function(x, numerals = TRUE, capitalize = FALSE, zero_string = "no", na_string = getOption("sportrxiv.na_string"), ...) {
   validate(x, check_integer = TRUE, check_NA = FALSE)
   validate(numerals, check_class = "logical", check_length = 1)
   validate(capitalize, check_class = "logical", check_length = 1)
@@ -165,7 +165,7 @@ printnum.numeric <- function(
   , gt1 = TRUE
   , zero = TRUE
   , margin = 1
-  , na_string = getOption("papaja.na_string")
+  , na_string = getOption("sportrxiv.na_string")
   , use_math = TRUE
   , add_equals = FALSE
   , ...
@@ -295,7 +295,7 @@ printnum.matrix <- function(
 #' @rdname printnum
 #' @export
 
-printnum.papaja_labelled <-function(x, ...){
+printnum.sportrxiv_labelled <-function(x, ...){
   x_out <- NextMethod("printnum")
   variable_label(x_out) <- variable_label(x)
   x_out

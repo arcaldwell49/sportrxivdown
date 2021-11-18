@@ -112,9 +112,9 @@ cite_r <- function(file = NULL, prefix = "R-", footnote = FALSE, pkgs = NULL, wi
 
   if(footnote) {
     res <- list()
-    res$r <- paste0(complete_r_citaiton, "[^papaja_pkg_citations]")
+    res$r <- paste0(complete_r_citaiton, "[^sportrxiv_pkg_citations]")
 
-    res$pkgs <- paste0("\n\n[^papaja_pkg_citations]: We, furthermore, used the R-packages ", pkg_info, ".\n\n")
+    res$pkgs <- paste0("\n\n[^sportrxiv_pkg_citations]: We, furthermore, used the R-packages ", pkg_info, ".\n\n")
   } else {
     res <- paste0(
       complete_r_citaiton, " and the R-package"

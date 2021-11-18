@@ -371,30 +371,6 @@ defaults <- function(ellipsis, set = NULL, set.if.null = NULL) {
 }
 
 
-
-#' Sort ANOVA or regression table by predictors/effects
-#'
-#' Sorts rows in ANOVA or regression tables produced by \code{\link{apa_print}}
-#' by complexity (i.e., main effects, two-way interactions, three-way interactions, etc.).
-#'
-#' @param x data.frame. For example, a table element produced by \code{\link{apa_print}}.
-#' @param colname Character. Column name of the \code{data.frame} containing the terms to sort.
-#'
-#' @return Returns the same data.frame with reordered rows.
-#' @export
-#'
-#' @examples
-#' ## From Venables and Ripley (2002) p. 165.
-#' npk_aov <- aov(yield ~ block + N * P * K, npk)
-#' npk_aov_results <- apa_print(npk_aov)
-#' sort_terms(npk_aov_results$table, "Effect")
-
-sort_terms <- function(x, colname) {
-  validate(x, check_class = "data.frame", check_cols = colname)
-
-  x[order(sapply(regmatches(x[[colname]], gregexpr("\\\\times", x[[colname]])), length)), ]
-}
-
 #' Corresponding author line
 #'
 #' Internal function. Construct corresponding-author line.
@@ -403,16 +379,16 @@ sort_terms <- function(x, colname) {
 #' @keywords internal
 
 corresponding_author_line <- function(x) {
-  apa_terms <- getOption("papaja.terms")
+  apa_terms <- getOption("sportrxiv.terms")
 
   if(is.null(x$name)) stop("\nPlease provide the corresponding author's name in the documents YAML front matter. Use the 'name' element of the 'author' list.\n")
   if(is.null(x$address)) stop("\nPlease provide the corresponding author's complete postal address in the documents YAML front matter. Use the 'address' element of the 'author' list.\n")
   if(is.null(x$email)) stop("\nPlease provide the corresponding author's e-mail address in the documents YAML front matter. Use the 'email' element of the 'author' list.\n")
 
-  corresponding_line <- paste0(
+  corresponding_line <- paste0("<div custom-style='Compact'>",
     apa_terms$correspondence, x$name, ", "
     , x$address, ". "
-    , apa_terms$email, ": ", x$email
+    , apa_terms$email, ": ", x$email, "</div>"
   )
 
   corresponding_line
@@ -429,14 +405,14 @@ localize <- function(x) {
   switch(
     x
     , list( # Default
-      author_note = "Author note"
+      author_note = "Note"
       , abstract = "Abstract"
       , keywords = "Keywords"
       , word_count = "Word count"
       , table = "Table"
       , figure = "Figure"
       , note = "Note"
-      , correspondence = "Correspondence concerning this article should be addressed to "
+      , correspondence = "Corresponding Author: "
       , email = "E-mail"
     )
     , german = list(
@@ -476,7 +452,7 @@ package_available <- function(x) x %in% rownames(utils::installed.packages())
 
 no_method <- function(x) {
   stop(paste0("Objects of class '", class(x), "' are currently not supported (no method defined).
-              Visit https://github.com/crsh/papaja/issues to request support for this class."))
+              Reach out to package maintainer to address this issue."))
 }
 
 rename_column <- function(x, current_name, new_name) {

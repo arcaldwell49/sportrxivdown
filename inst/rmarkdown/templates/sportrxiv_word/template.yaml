@@ -1,4 +1,4 @@
-name: sportrxiv_word
+name: SportRxiv
 description: >
    A template for creating submission ready Word document for SportRxiv
 create_dir: TRUE

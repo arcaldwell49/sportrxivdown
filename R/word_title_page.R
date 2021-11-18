@@ -5,13 +5,13 @@
 #'
 #' @param x List. Meta data of the document as a result from \code{\link[yaml]{yaml.load}}.
 #' @keywords internal
-#' @seealso \code{\link{apa6_word}}
+#' @seealso \code{\link{sportrxiv_word}}
 
 word_title_page <- function(x) {
   # Create title page and abstract
   # Hack together tables for centered elements
 
-  apa_terms <- getOption("papaja.terms")
+  apa_terms <- getOption("sportrxiv.terms")
 
   author_note <- c()
   author_information <- c()
@@ -34,10 +34,10 @@ word_title_page <- function(x) {
 
       author_note <- c(
         author_note
-        , paste0(
+        , paste0("<div custom-style='Compact'>",
           "The authors made the following contributions. "
           , paste(contributions, collapse = "; ")
-          , "."
+          , ".", "</div>"
         )
       )
     }
@@ -48,9 +48,10 @@ word_title_page <- function(x) {
 
     if(length(author_note) > 0) {
       author_note <- c(
-        "<div custom-style='Author'>", apa_terms$author_note, "</div>"
-        , "\n"
-        , paste(author_note, collapse = "\n\n")
+        #"<div custom-style='Author'>", apa_terms$author_note, "</div>"
+        #, "\n"
+        #,
+        paste("<div custom-style='Author'>",author_note, "</div>", collapse = "\n\n")
       )
     }
 
@@ -60,8 +61,8 @@ word_title_page <- function(x) {
       "\n\n"
       , "<div custom-style='Author'>", authors, "</div>"
       , "<div custom-style='Author'>", affiliations, "</div>"
-      , padding
-      , "<div custom-style='Author'>", x$note, "</div>"
+      #, padding
+      , "<div custom-style='Compact'>", x$note, "</div>"
       , "\n\n&nbsp;\n"
     )
   }
@@ -73,18 +74,18 @@ word_title_page <- function(x) {
     , "\n"
   )
 
-  keywords <- paste0("*", apa_terms$keywords, ":* ", x$keywords, "\n")
-  wordcount <- paste0("*", apa_terms$word_count, ":* ", x$wordcount, "\n")
+  keywords <- paste0("<div custom-style='Compact'>","*", apa_terms$keywords, ":* ", x$keywords, "</div>", "\n")
+  wordcount <- paste0("<div custom-style='Compact'>","*", apa_terms$word_count, ":* ", x$wordcount, "</div>", "\n")
 
   c(
     author_information
-    , "\n\n&nbsp;\n\n&nbsp;\n\n&nbsp;\n\n&nbsp;\n\n&nbsp;\n\n"
+    , "\n\n&nbsp;\n\n" # &nbsp;\n\n&nbsp;\n\n&nbsp;\n\n&nbsp;\n\n
     , author_note
     , "\n"
-    , ifelse(is.null(x$abstract), "", abstract)
-    # is.null(x$abstract) for consistency with apa6_pdf()
     , ifelse(is.null(x$abstract) || is.null(x$keywords), "", keywords)
     , ifelse(is.null(x$abstract) || is.null(x$wordcount), "", wordcount)
+    , ifelse(is.null(x$abstract), "", abstract)
+    # is.null(x$abstract) for consistency with apa6_pdf()
     , paste0("<div custom-style='h1-pagebreak'>", x$title, "</div>\n\n")
   )
 }

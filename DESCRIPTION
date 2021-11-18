@@ -17,26 +17,7 @@ Imports:
   yaml,
   zip
 Suggests:
-  tinytex,
-  afex,
-  BayesFactor,
-  beeswarm,
-  boot,
-  car,
-  carData,
-  downloader,
-  dplyr,
-  emmeans,
-  ggplot2,
-  latex2exp,
-  lsmeans,
-  MBESS,
-  multcomp,
-  testthat,
-  skimr,
-  spelling,
-  lme4,
-  lmerTest
+  testthat
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
