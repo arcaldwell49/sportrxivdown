@@ -386,7 +386,7 @@ corresponding_author_line <- function(x) {
   if(is.null(x$email)) stop("\nPlease provide the corresponding author's e-mail address in the documents YAML front matter. Use the 'email' element of the 'author' list.\n")
 
   corresponding_line <- paste0("<div custom-style='Compact'>",
-    apa_terms$correspondence, x$name, ", "
+    "**", apa_terms$correspondence,"**", x$name, ", "
     , x$address, ". "
     , apa_terms$email, ": ", x$email, "</div>"
   )

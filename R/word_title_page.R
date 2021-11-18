@@ -74,8 +74,8 @@ word_title_page <- function(x) {
     , "\n"
   )
 
-  keywords <- paste0("<div custom-style='Compact'>","*", apa_terms$keywords, ":* ", x$keywords, "</div>", "\n")
-  wordcount <- paste0("<div custom-style='Compact'>","*", apa_terms$word_count, ":* ", x$wordcount, "</div>", "\n")
+  keywords <- paste0("<div custom-style='Compact'>","**", apa_terms$keywords, ":** ", x$keywords, "</div>", "\n")
+  wordcount <- paste0("<div custom-style='Compact'>","**", apa_terms$word_count, ":** ", x$wordcount, "</div>", "\n")
 
   c(
     author_information
@@ -86,7 +86,7 @@ word_title_page <- function(x) {
     , ifelse(is.null(x$abstract) || is.null(x$wordcount), "", wordcount)
     , ifelse(is.null(x$abstract), "", abstract)
     # is.null(x$abstract) for consistency with apa6_pdf()
-    , paste0("<div custom-style='h1-pagebreak'>", x$title, "</div>\n\n")
+    , paste0("\n","<div style=\"page-break-after: always;\"></div>" ) #"<div custom-style='h1-pagebreak'>", x$title,"</div>\n\n"
   )
 }
 
