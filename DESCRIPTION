@@ -2,10 +2,42 @@ Package: sportrxivdown
 Type: Package
 Title: What the Package Does (Title Case)
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
+Author: Aaron R. Caldwell
+Maintainer: Aaron Caldwell <arcaldwell49@gmail.com>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
+Imports:
+  base64enc,
+  bookdown (>= 0.9.1),
+  broom (>= 0.5.2.9001),
+  knitr (>= 1.26),
+  methods,
+  rmarkdown (>= 2.0),
+  rmdfiltr (>= 0.1.2),
+  yaml,
+  zip
+Suggests:
+  tinytex,
+  afex,
+  BayesFactor,
+  beeswarm,
+  boot,
+  car,
+  carData,
+  downloader,
+  dplyr,
+  emmeans,
+  ggplot2,
+  latex2exp,
+  lsmeans,
+  MBESS,
+  multcomp,
+  testthat,
+  skimr,
+  spelling,
+  lme4,
+  lmerTest
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 7.1.2
