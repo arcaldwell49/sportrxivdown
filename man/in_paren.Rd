@@ -16,11 +16,3 @@ An object of the same type as \code{x}.
 Takes a single character or a list of characters and replaces parentheses with brackets. Can be used to
 prepare a string of statistics (e.g. containing degrees of freedom) for reporting within paretheses.
 }
-\examples{
-t_stat <- t.test(extra ~ group, data = sleep)
-t_test_res <- apa_print(t_stat)
-in_paren(t_test_res$stat)
-}
-\seealso{
-apa_print
-}

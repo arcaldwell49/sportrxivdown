@@ -32,10 +32,7 @@
 #'
 #' @author Christoph Stahl, Frederik Aust
 #' @return Returns \code{bib_name} invisibly.
-#'
-#' @seealso \code{\link{r_refs}}, \code{\link{cite_r}}
-#'
-#' @examples NULL
+
 
 fetch_zotero_refs <- function(
   x

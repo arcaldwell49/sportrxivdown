@@ -5,12 +5,6 @@
 #'
 #' @param x Character. Single character or list of characters.
 #' @return An object of the same type as \code{x}.
-#'
-#' @seealso apa_print
-#' @examples
-#' t_stat <- t.test(extra ~ group, data = sleep)
-#' t_test_res <- apa_print(t_stat)
-#' in_paren(t_test_res$stat)
 #' @export
 
 in_paren <- function(x) {

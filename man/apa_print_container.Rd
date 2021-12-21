@@ -13,10 +13,10 @@ A named list containing the following components according to the input:
      \item{\code{estimate}}{A (named list of) character strings giving effect size estimates.}
      \item{\code{statistic}}{A (named list of) character strings giving test statistic, parameters, and \emph{p} values.}
      \item{\code{full_report}}{A (named list of) character strings comprised of \code{estimate} and \code{statistic} for each factor.}
-     \item{\code{table}}{A \code{data.frame} containing all results; can, for example, be passed to \code{\link{apa_table}}.}
+     \item{\code{table}}{A \code{data.frame} containing all results; can, for example, be passed to apa_table.}
    }
 }
 \description{
-Creates the default empty container for the results of \code{\link{apa_print}}. \emph{This function is not exported.}
+Creates the default empty container for the results of  apa_print. \emph{This function is not exported.}
 }
 \keyword{internal}

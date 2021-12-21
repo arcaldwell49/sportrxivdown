@@ -18,7 +18,6 @@
 #'    to be a separate paragraph in the Markdown document.
 #' @return If \code{footnote = FALSE} a character string is returned, otherwise a named list with the elements \code{r}
 #'    and \code{pkgs}.
-#' @seealso \code{\link{r_refs}}, \code{\link[knitr]{write_bib}}
 #' @examples cite_r()
 #' @export
 

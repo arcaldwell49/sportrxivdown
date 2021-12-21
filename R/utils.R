@@ -75,7 +75,7 @@ validate <- function(
 
 #' Create empty container for results
 #'
-#' Creates the default empty container for the results of \code{\link{apa_print}}. \emph{This function is not exported.}
+#' Creates the default empty container for the results of  apa_print. \emph{This function is not exported.}
 #'
 #' @return
 #'    A named list containing the following components according to the input:
@@ -84,7 +84,7 @@ validate <- function(
 #'      \item{\code{estimate}}{A (named list of) character strings giving effect size estimates.}
 #'      \item{\code{statistic}}{A (named list of) character strings giving test statistic, parameters, and \emph{p} values.}
 #'      \item{\code{full_report}}{A (named list of) character strings comprised of \code{estimate} and \code{statistic} for each factor.}
-#'      \item{\code{table}}{A \code{data.frame} containing all results; can, for example, be passed to \code{\link{apa_table}}.}
+#'      \item{\code{table}}{A \code{data.frame} containing all results; can, for example, be passed to apa_table.}
 #'    }
 #' @keywords internal
 
@@ -299,7 +299,7 @@ sanitize_terms <- function(x, standardized = FALSE) {
 
 #' Prettify term names
 #'
-#' Remove parentheses, replace colons with \code{$\\times$}. Useful to prettify term names in \code{apa_print()} tables.
+#' Remove parentheses, replace colons with \code{$\\times$}. Useful to prettify term names in apa_print tables.
 #' \emph{This function is not exported.}
 #'
 #' @param x Character. Vector of term-names to be prettified

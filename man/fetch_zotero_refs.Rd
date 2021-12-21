@@ -51,12 +51,6 @@ them via a web browser. They keys are contained in the URL:
 Zotero web API calls can be slow, especially for large reference collections. If available, this function will
 utilize the \pkg{downloader}-package, which speeds up reference downloads considerably.
 }
-\examples{
-NULL
-}
-\seealso{
-\code{\link{r_refs}}, \code{\link{cite_r}}
-}
 \author{
 Christoph Stahl, Frederik Aust
 }
